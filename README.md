@@ -1,6 +1,6 @@
 # React Templates Compiler for Meteor
 
-Early Alpha, Meteor build wrapper for https://github.com/wix/react-templates
+This is just the compiler for lassombra:react-templates
 
 ### License
 
