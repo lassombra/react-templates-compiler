@@ -1,6 +1,6 @@
 Package.describe({
     name: 'lassombra:react-templates-compiler',
-    version: '0.0.2',
+    version: '0.0.3',
     summary: 'Compiler plugin that converts *.rt files to be used by react components.',
     documentation: 'README.md'
 });

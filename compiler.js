@@ -6,9 +6,9 @@
  * be 100% shared between all instances.
  */
 var compiler = Npm.require('react-templates');
-var defineRegex = /define\(\[(\s*\'[\w\/]*\',?)*\s*\], function/mg;
-var commentRegex = /<!--.*-->/mg;
-var nameRegex = /name="(.*)"/mg;
+var defineRegex = /define\(\[(\s*\'[\w\/]*\',?)*\s*\], function/m;
+var commentRegex = /<!--.*-->/m;
+var nameRegex = /name="(.*)"/m;
 
 // constructor doesn't need to do anything.  The prototype will do all of the work.
 function Compiler() {}
@@ -52,15 +52,19 @@ function toCamelCase(name) {
  * @returns {string}
  */
 function getFunctionName(displayName, contents) {
+    console.log(contents);
     var name = displayName;
+    console.log(name);
     name = name.split('/').pop();
     name = name.split('.rt')[0];
     // comment will have the first HTML comment in the contents if one exists.
     var comment = commentRegex.exec(contents);
+    console.log(comment);
     comment = comment && comment[0];
     if (comment) {
         // try to parse out a name, format name="{name}" we only care about the part in the quotes
         var tempName = nameRegex.exec(comment);
+        console.log(tempName);
         tempName = tempName && tempName[1];
         if (tempName) {
             // IF we got a name from the comments, replace the name we're holding onto.
